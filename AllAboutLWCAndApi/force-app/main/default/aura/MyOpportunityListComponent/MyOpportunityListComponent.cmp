@@ -1,0 +1,21 @@
+<aura:component controller="MyOpportunityListController" implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="listOpportunity" type="Opportunity[]" />
+    <aura:attribute name="columnsToDisplay" type="List" />
+    <aura:attribute name="searchField" type="string" />
+
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+
+
+    <!-- <lightning:input type="search" aura:id="searchField" label="Opporunity Name" value="{!v.searchKeyword}"
+            placeholder="Search Opportunities" onchange="{!c.searchOpportunities}" /> -->
+    <lightning:input aura:id="searchField" label="Search when user hits the 'enter' key" value="{!v.searchField}"
+        onchange="{!c.searchOpportunities}" />
+
+
+    <lightning:datatable keyField="id" data="{!v.listOpportunity }" columns="{!v.columnsToDisplay }"
+        hideCheckboxColumn="true" />
+
+</aura:component>
